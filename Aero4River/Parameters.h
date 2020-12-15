@@ -371,10 +371,15 @@ public:
         // 254,255: reserved
 
         k_param_vehicle = 257, // vehicle common block of parameters
+        k_param_river
 
         // the k_param_* space is 9-bits in size
         // 511: reserved
     };
+
+    // // River Params
+    // AP_Int16        river_servo_min_pwm; // valor de pwm para o  minimo do direcionamento dos servos (-180 graus)
+    // AP_Int16        river_servo_max_pwm; // valor de pwm para o  máximo do direcionamento dos servos (+180 graus)
 
     AP_Int16        format_version;
 

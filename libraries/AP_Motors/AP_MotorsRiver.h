@@ -14,6 +14,11 @@
 class AP_MotorsRiver : public AP_MotorsMatrix {
 public:
 
+    static const struct AP_Param::GroupInfo var_info[];
+    
+
+
+
  // Propriedade Física do Barco
     float FT = 0.0f;
     float FM1 = GRAVITY_MSS*2.1f;
@@ -109,14 +114,17 @@ public:
     // float               get_roll_factor(uint8_t i) override { return _roll_factor[i]; }
 
 protected:
+// River Params
+    AP_Int16        _river_servo_min_pwm; // valor de pwm para o  minimo do direcionamento dos servos (-180 graus)
+    AP_Int16        _river_servo_max_pwm; // valor de pwm para o  máximo do direcionamento dos servos (+180 graus)
  
     void FOSSEN_alocation_matrix(float FX,float FY,float tN,float &theta_motor1,float &theta_motor2,float &theta_motor3,float &theta_motor4,float &PWM1 ,float &PWM2 ,float &PWM3 ,float &PWM4);
-    int servo_angle_to_pwm(float angle,float srv_min_pwm,float srv_max_pwm);
     void pwm_servo_angle(float &Pwm_servo_m1,float &Pwm_servo_m2,float &Pwm_servo_m3,float &Pwm_servo_m4,float theta_m1,float theta_m2,float theta_m3,float theta_m4);
     void CalibrateServo(float &Pwm_servo);
+    void direct_allocation(float &Theta1,float &Theta2,float &Theta3,float &Theta4,float &PWM1,float &PWM2,float &PWM3,float &PWM4);
     float PWMtoNorm(float pwm);
     float NormtoPWM(float pwm);
-    void direct_allocation(float &Theta1,float &Theta2,float &Theta3,float &Theta4,float &PWM1,float &PWM2,float &PWM3,float &PWM4);
+    int servo_angle_to_pwm(float angle,float srv_min_pwm,float srv_max_pwm);
 
     // output - sends commands to the motors
     void                output_armed_stabilizing() override;

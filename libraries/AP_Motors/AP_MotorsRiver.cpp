@@ -9,6 +9,32 @@
 
 extern const AP_HAL::HAL &hal;
 
+const AP_Param::GroupInfo AP_MotorsRiver::var_info[] = {
+        // @Param: OFS_X
+    // @DisplayName: Compass offsets on the X axis
+    // @Description: Offset to be added to the compass x-axis values to compensate for metal in the frame
+    // @Range: -400 400
+    // @Increment: 1
+
+    // RIVER PARAMETERS
+
+    // @Param: SERVO_MIN_PWM
+    // @DisplayName: My New Parameter
+    // @Description: PWM value sent by the Receiver for the minimum value of the servo position
+    // @Range: 0 3000
+    // @User: Advanced
+    AP_GROUPINFO("SERVO_MIN_PWM",1,AP_MotorsRiver, _river_servo_min_pwm,  550),
+
+    // @Param: SERVO_MAX_PWM
+    // @DisplayName: My New Parameter
+    // @Description: PWM value sent by the Receiver for the maximum value of the servo position
+    // @Range: 0 3000
+    // @User: Advanced
+    AP_GROUPINFO("SERVO_MAX_PWM",2,AP_MotorsRiver, _river_servo_max_pwm,  2500),
+
+AP_GROUPEND
+};
+
 void AP_MotorsRiver::output_to_motors() {
     int8_t i;
 
@@ -82,6 +108,7 @@ float AP_MotorsRiver::NormtoPWM(float val) {
 int AP_MotorsRiver::servo_angle_to_pwm(float angle,float srv_min_pwm, float srv_max_pwm) {
     /// Nessa função deve-se inserir os valores mínimos e maxímos do pwm  considerando 0 a 180 como angulos mínimos e máximos
     //Entrada de angulo deve ser  de -180 a 180 ELE CHEGARÁ A 180 DEVIDO A ENGRENAGEM
+    
     angle = constrain_float(angle,-180.0f,180.0f);
 
     angle = 180.0f - angle;
