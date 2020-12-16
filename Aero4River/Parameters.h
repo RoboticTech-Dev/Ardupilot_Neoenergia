@@ -398,7 +398,7 @@ public:
 #if RANGEFINDER_ENABLED == ENABLED
     AP_Float        rangefinder_gain;
 #endif
-
+        
     AP_Int8         failsafe_gcs;               // ground station failsafe behavior
     AP_Int16        gps_hdop_good;              // GPS Hdop value at or below this value represent a good position
 
@@ -590,8 +590,6 @@ public:
     AP_Scripting scripting;
 #endif // ENABLE_SCRIPTING
 
-    AP_MotorsRiver river;
-    
     AP_Float tuning_min;
     AP_Float tuning_max;
 

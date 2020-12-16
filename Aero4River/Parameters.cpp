@@ -517,7 +517,7 @@ const AP_Param::Info Copter::var_info[] = {
 
     // @Group: RIVER_
     // @Path: ../libraries/AP_Motors/AP_MotorsRiver.cpp
-    GOBJECT(river, "RIVER_",   AP_MotorsRiver),
+    GOBJECT(motors, "RIVER_",   AP_MotorsRiver),
 
     // @Group: INS_
     // @Path: ../libraries/AP_InertialSensor/AP_InertialSensor.cpp
