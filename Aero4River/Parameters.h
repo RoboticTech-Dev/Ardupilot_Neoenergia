@@ -161,8 +161,7 @@ public:
         k_param_single_servo_3,         // remove
         k_param_single_servo_4,         // 78 - remove
         
-        // RIVER
-        k_param_river = 79,
+
 
         //
         // 80: Heli
@@ -201,6 +200,10 @@ public:
         k_param_pos_control,
         k_param_circle_nav,
         k_param_loiter_nav,     // 105
+
+                // RIVER
+        k_param_r_srv_max = 106,
+        k_param_r_srv_min,
 
         // 110: Telemetry control
         //

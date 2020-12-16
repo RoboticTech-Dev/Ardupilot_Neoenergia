@@ -36,22 +36,6 @@
 #endif
 
 const AP_Param::Info Copter::var_info[] = {
-    // // RIVER PARAMETERS
-
-    // // @Param: SERVO_MIN_PWM
-    // // @DisplayName: My New Parameter
-    // // @Description: PWM value sent by the Receiver for the minimum value of the servo position
-    // // @Range: 0 3000
-    // // @User: Advanced
-    // GSCALAR(river_servo_min_pwm, "SERVO_MIN_PWM", 550),
-
-    // // @Param: SERVO_MAX_PWM
-    // // @DisplayName: My New Parameter
-    // // @Description: PWM value sent by the Receiver for the maximum value of the servo position
-    // // @Range: 0 3000
-    // // @User: Advanced
-    // GSCALAR(river_servo_max_pwm, "SERVO_MAX_PWM", 2500),
-
     // @Param: FORMAT_VERSION
     // @DisplayName: Eeprom format version number
     // @Description: This value is incremented when changes are made to the eeprom format
@@ -513,11 +497,6 @@ const AP_Param::Info Copter::var_info[] = {
     // @Group: COMPASS_
     // @Path: ../libraries/AP_Compass/AP_Compass.cpp
     GOBJECT(compass,        "COMPASS_", Compass),
-
-
-    // @Group: RIVER_
-    // @Path: ../libraries/AP_Motors/AP_MotorsRiver.cpp
-    GOBJECT(motors, "RIVER_",   AP_MotorsRiver),
 
     // @Group: INS_
     // @Path: ../libraries/AP_InertialSensor/AP_InertialSensor.cpp

@@ -12,27 +12,24 @@
 extern const AP_HAL::HAL &hal;
 
 const AP_Param::GroupInfo AP_MotorsRiver::var_info[] = {
-        // @Param: OFS_X
-    // @DisplayName: Compass offsets on the X axis
-    // @Description: Offset to be added to the compass x-axis values to compensate for metal in the frame
-    // @Range: -400 400
-    // @Increment: 1
-
-    // RIVER PARAMETERS
-
-    // @Param: SERVO_MIN_PWM
-    // @DisplayName: My New Parameter
+    AP_NESTEDGROUPINFO(AP_MotorsMulticopter, 0),
+    
+    // @Param: SRVO_MIN_PWM
+    // @DisplayName: Servo Min
     // @Description: PWM value sent by the Receiver for the minimum value of the servo position
     // @Range: 0 3000
+    // @Units: PWM
     // @User: Advanced
-    AP_GROUPINFO("SERVO_MIN_PWM",1,AP_MotorsRiver, _r_srv_min_pwm,  550),
+    AP_GROUPINFO("SRVO_MIN_PWM",1,AP_MotorsRiver, _r_srv_min_pwm, 550),
 
-    // @Param: SERVO_MAX_PWM
-    // @DisplayName: My New Parameter
+    // @Param: SRVO_MAX_PWM
+    // @DisplayName: Servo Max
     // @Description: PWM value sent by the Receiver for the maximum value of the servo position
     // @Range: 0 3000
+    // @Units: PWM
     // @User: Advanced
-    AP_GROUPINFO("SERVO_MAX_PWM",2,AP_MotorsRiver, _r_srv_max_pwm,  2500),
+    AP_GROUPINFO("SRVO_MAX_PWM",2,AP_MotorsRiver, _r_srv_max_pwm,  2500),
+
     AP_GROUPEND
 };
 
@@ -270,9 +267,6 @@ void AP_MotorsRiver::FOSSEN_alocation_matrix(float FX,float FY,float TN,float &T
     Theta4 = Theta4 * RAD_TO_DEG;
 }
 
-
-/* ****************************** Mathaus *********************************
-***************************************************************************/
 void AP_MotorsRiver::setup_motors(motor_frame_class frame_class, motor_frame_type frame_type){
     // remove existing motors
     for (int8_t i = 0; i < AP_MOTORS_MAX_NUM_MOTORS; i++) {
