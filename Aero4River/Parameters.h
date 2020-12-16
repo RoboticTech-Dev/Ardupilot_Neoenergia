@@ -160,6 +160,9 @@ public:
         k_param_single_servo_2,         // remove
         k_param_single_servo_3,         // remove
         k_param_single_servo_4,         // 78 - remove
+        
+        // RIVER
+        k_param_river = 79,
 
         //
         // 80: Heli
@@ -371,16 +374,12 @@ public:
         // 254,255: reserved
 
         k_param_vehicle = 257, // vehicle common block of parameters
-        k_param_river
 
         // the k_param_* space is 9-bits in size
         // 511: reserved
     };
 
-    // // River Params
-    // AP_Int16        river_servo_min_pwm; // valor de pwm para o  minimo do direcionamento dos servos (-180 graus)
-    // AP_Int16        river_servo_max_pwm; // valor de pwm para o  máximo do direcionamento dos servos (+180 graus)
-
+    
     AP_Int16        format_version;
 
     // Telemetry control
@@ -449,6 +448,7 @@ public:
     AP_Int8         fs_crash_check;
     AP_Float        fs_ekf_thresh;
     AP_Int16        gcs_pid_mask;
+    // AP_Int16        river;
 
 #if MODE_THROW_ENABLED == ENABLED
     AP_Int8         throw_motor_start;
@@ -590,6 +590,8 @@ public:
     AP_Scripting scripting;
 #endif // ENABLE_SCRIPTING
 
+    AP_MotorsRiver river;
+    
     AP_Float tuning_min;
     AP_Float tuning_max;
 

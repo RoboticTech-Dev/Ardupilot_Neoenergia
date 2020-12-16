@@ -6,6 +6,7 @@
 #include <AP_Math/AP_Math.h>        // ArduPilot Mega Vector/Matrix math Library
 #include <RC_Channel/RC_Channel.h>     // RC Channel Library
 #include "AP_MotorsMatrix.h"
+#include <AP_Param/AP_Param.h>
 
 #define AP_MOTORS_MATRIX_YAW_FACTOR_CW   -1
 #define AP_MOTORS_MATRIX_YAW_FACTOR_CCW   1
@@ -16,9 +17,6 @@ public:
 
     static const struct AP_Param::GroupInfo var_info[];
     
-
-
-
  // Propriedade Física do Barco
     float FT = 0.0f;
     float FM1 = GRAVITY_MSS*2.1f;
@@ -115,8 +113,8 @@ public:
 
 protected:
 // River Params
-    AP_Int16        _river_servo_min_pwm; // valor de pwm para o  minimo do direcionamento dos servos (-180 graus)
-    AP_Int16        _river_servo_max_pwm; // valor de pwm para o  máximo do direcionamento dos servos (+180 graus)
+    AP_Int16        _r_srv_min_pwm; // valor de pwm para o  minimo do direcionamento dos servos (-180 graus)
+    AP_Int16        _r_srv_max_pwm; // valor de pwm para o  máximo do direcionamento dos servos (+180 graus)
  
     void FOSSEN_alocation_matrix(float FX,float FY,float tN,float &theta_motor1,float &theta_motor2,float &theta_motor3,float &theta_motor4,float &PWM1 ,float &PWM2 ,float &PWM3 ,float &PWM4);
     void pwm_servo_angle(float &Pwm_servo_m1,float &Pwm_servo_m2,float &Pwm_servo_m3,float &Pwm_servo_m4,float theta_m1,float theta_m2,float theta_m3,float theta_m4);

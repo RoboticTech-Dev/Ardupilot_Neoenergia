@@ -7,6 +7,8 @@
 #include "AP_MotorsRiver.h"
 #include <GCS_MAVLink/GCS.h>
 
+
+
 extern const AP_HAL::HAL &hal;
 
 const AP_Param::GroupInfo AP_MotorsRiver::var_info[] = {
@@ -23,16 +25,15 @@ const AP_Param::GroupInfo AP_MotorsRiver::var_info[] = {
     // @Description: PWM value sent by the Receiver for the minimum value of the servo position
     // @Range: 0 3000
     // @User: Advanced
-    AP_GROUPINFO("SERVO_MIN_PWM",1,AP_MotorsRiver, _river_servo_min_pwm,  550),
+    AP_GROUPINFO("SERVO_MIN_PWM",1,AP_MotorsRiver, _r_srv_min_pwm,  550),
 
     // @Param: SERVO_MAX_PWM
     // @DisplayName: My New Parameter
     // @Description: PWM value sent by the Receiver for the maximum value of the servo position
     // @Range: 0 3000
     // @User: Advanced
-    AP_GROUPINFO("SERVO_MAX_PWM",2,AP_MotorsRiver, _river_servo_max_pwm,  2500),
-
-AP_GROUPEND
+    AP_GROUPINFO("SERVO_MAX_PWM",2,AP_MotorsRiver, _r_srv_max_pwm,  2500),
+    AP_GROUPEND
 };
 
 void AP_MotorsRiver::output_to_motors() {
